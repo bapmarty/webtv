@@ -1,0 +1,45 @@
+version: '3.5'
+
+services:
+  db:
+    image: mongo
+    restart: always
+    ports:
+      - ${MONGO_PORT}:${MONGO_PORT}
+    volumes:
+      - db_data:/data/db
+    networks:
+      - webtv
+
+  api:
+    build: ./api/
+    restart: always
+    ports:
+      - 3002:3000
+    environment:
+      WEBTV_API_PORT: ${WEBTV_API_PORT}
+    volumes:
+      - ./api/:/usr/src/
+      - ./api/package.json:/usr/src/package.json
+      - /usr/src/node_modules
+    networks:
+      - webtv
+
+  app:
+    build: ./app/
+    restart: always
+    ports:
+      - 3001:3000
+    volumes:
+      - ./app/package.json:/usr/src/package.json
+      - ./app/:/usr/src/
+      - /usr/src/node_modules
+    networks:
+      - webtv
+
+networks:
+  webtv:
+    name: webtv
+
+volumes:
+  db_data: {}
