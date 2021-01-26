@@ -1,0 +1,31 @@
+name: Docker build and run
+
+on:
+  pull_request:
+    branches:
+      - master
+
+env:
+  WEBTV_API_PORT: ${{secrets.WEBTV_API_PORT}}
+  WEBTV_ROOT_USERNAME: ${{secrets.WEBTV_ROOT_USERNAME}}
+  WEBTV_ROOT_PASSWORD: ${{secrets.WEBTV_ROOT_PASSWORD}}
+  WEBTV_USERNAME: ${{secrets.WEBTV_USERNAME}}
+  WEBTV_PASSWORD: ${{secrets.WEBTV_PASSWORD}}
+  MONGO_PORT: ${{secrets.MONGO_PORT}}
+
+jobs:
+  test:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2
+      - name: build
+        run: docker-compose build
+      - name: run
+        run: docker-compose up -d
+      - name: test
+        run: |
+          sleep 5
+          docker-compose logs api app
+          sh -c "[ `docker inspect $(docker-compose ps -q app) --format='{{.State.ExitCode}}'` -eq 0 ]"
+      - name: stop
+        run: docker-compose down
