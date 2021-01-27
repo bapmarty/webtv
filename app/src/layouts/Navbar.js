@@ -25,7 +25,7 @@ const Navbar = () => {
       <nav className="navbar-container">
         <div className="navbar-header">
           <div className="navbar-header-title">
-            <h1><NavLink to="/live"><span>B</span>apmarty</NavLink></h1>
+            <h1><NavLink exact to="/"><span>B</span>apmarty</NavLink></h1>
           </div>
           <div className="navbar-header-bars" onClick={handleClick}>
             <FontAwesomeIcon icon={icon} />
@@ -33,10 +33,10 @@ const Navbar = () => {
         </div>
         <div className={navbarOpen}>
           <ul className="navbar-nav-list">
-            <li className="navbar-nav-item"><NavLink to='/live' activeClassName="active">Direct <FontAwesomeIcon icon={faCircle} /></NavLink></li>
-            <li className="navbar-nav-item"><NavLink to='/prog' activeClassName="active">Programmation</NavLink></li>
-            <li className="navbar-nav-item"><NavLink to='/info' activeClassName="active">Informations</NavLink></li>
-            <li className="navbar-nav-item"><NavLink to='/rediff' activeClassName="active">Rediffusions</NavLink></li>
+            <li className="navbar-nav-item"><NavLink exact to='/' activeClassName="active">Direct <FontAwesomeIcon icon={faCircle} /></NavLink></li>
+            <li className="navbar-nav-item"><NavLink exact to='/prog' activeClassName="active">Programmation</NavLink></li>
+            <li className="navbar-nav-item"><NavLink exact to='/info' activeClassName="active">Informations</NavLink></li>
+            <li className="navbar-nav-item"><NavLink exact to='/rediff' activeClassName="active">Rediffusions</NavLink></li>
           </ul>
           <ul  className="navbar-social-list">
             <li className="navbar-social-item"><a href="https://discord.bapmarty.fr"><FontAwesomeIcon icon={faDiscord} /></a></li>

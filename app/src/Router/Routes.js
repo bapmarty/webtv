@@ -4,8 +4,11 @@ import Home from "../components/Home";
 
 const Routes = () => (
   <Switch>
-    <Route path="/live" component={Home}/>
-    <Redirect to="/live" />
+    <Route exact path="/" component={Home}/>
+    <Route exact path="/prog" component={Home}/>
+    <Route exact path="/info" component={Home}/>
+    <Route exact path="/rediff" component={Home}/>
+    <Redirect to="/" />
   </Switch>
 );
 
