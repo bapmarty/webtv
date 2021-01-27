@@ -10,26 +10,24 @@ const Navbar = () => {
       <nav className="navbar-container">
         <div className="navbar-header">
           <div className="navbar-header-title">
-            <h1><span>B</span>apmarty</h1>
+            <h1><NavLink to="/"><span>B</span>apmarty</NavLink></h1>
           </div>
           <div className="navbar-header-bars">
             <FontAwesomeIcon icon={faBars} />
           </div>
         </div>
-        <div>
-          <ul>
-            <li><NavLink to='/'>Direct <FontAwesomeIcon icon={faCircle} /></NavLink></li>
-            <li><NavLink to='/prog'>Programmation</NavLink></li>
-            <li><NavLink to='/info'>Informations</NavLink></li>
-            <li><NavLink to='/rediff'>Rediffusions</NavLink></li>
+        <div className="navbar-nav">
+          <ul className="navbar-nav-list">
+            <li className="navbar-nav-item"><NavLink to='/live' activeClassName="active">Direct <FontAwesomeIcon icon={faCircle} /></NavLink></li>
+            <li className="navbar-nav-item"><NavLink to='/prog' activeClassName="active">Programmation</NavLink></li>
+            <li className="navbar-nav-item"><NavLink to='/info' activeClassName="active">Informations</NavLink></li>
+            <li className="navbar-nav-item"><NavLink to='/rediff' activeClassName="active">Rediffusions</NavLink></li>
           </ul>
-        </div>
-        <div>
-          <ul>
-            <li><a href="https://discord.bapmarty.fr"><FontAwesomeIcon icon={faDiscord} /></a></li>
-            <li><a href="https://instagram.com/baptistemrrt"><FontAwesomeIcon icon={faInstagram} /></a></li>
-            <li><a href="https://youtube.com/"><FontAwesomeIcon icon={faYoutube} /></a></li>
-            <li><a href="https://github.com/baptistemrt"><FontAwesomeIcon icon={faGithub} /></a></li>
+          <ul  className="navbar-social-list">
+            <li className="navbar-social-item"><a href="https://discord.bapmarty.fr"><FontAwesomeIcon icon={faDiscord} /></a></li>
+            <li className="navbar-social-item"><a href="https://instagram.com/baptistemrrt"><FontAwesomeIcon icon={faInstagram} /></a></li>
+            <li className="navbar-social-item"><a href="https://youtube.com/"><FontAwesomeIcon icon={faYoutube} /></a></li>
+            <li className="navbar-social-item"><a href="https://github.com/baptistemrt"><FontAwesomeIcon icon={faGithub} /></a></li>
           </ul>
         </div>
       </nav>

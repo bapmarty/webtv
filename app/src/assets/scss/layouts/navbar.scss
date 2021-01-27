@@ -6,17 +6,71 @@
   .navbar-header {
     display: flex;
     justify-content: space-between;
-    padding: 10px 25px;
+    padding: 15px 25px;
     align-items: center;
+    border-bottom: 1px solid;
+    border-color: lighten($purple, 50%);
     .navbar-header-title {
       h1 {
-        span {
-          color: $purple;
+        a {
+          color: $black;
+          text-decoration: none;
+          span {
+            color: $purple;
+          }
         }
       }
     }
     .navbar-header-bars {
       font-size: 1.6rem;
+    }
+  }
+
+  .navbar-nav {
+    background: $white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    .navbar-nav-list {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      list-style-type: none;
+      .navbar-nav-item {
+        display: block;
+        padding: 7px 25px;
+        a {
+          font-size: 1.1rem;
+          text-decoration: none;
+          color: $black;
+          &.active {
+            color: $purple;
+          }
+          svg {
+            margin-left: 5px;
+            font-size: .7rem;
+            vertical-align: 0px;
+          }
+        }
+      }
+    }
+
+    .navbar-social-list {
+      display: flex;
+      justify-content: space-evenly;
+      list-style-type: none;
+      padding: 20px 0;
+      .navbar-social-item {
+        a {
+          font-size: 1.1rem;
+          color: $black;
+          transition: color .3s ease-in-out;
+          &:hover {
+            color: $purple;
+            transition: color .3s ease-in-out;
+          }
+        }
+      }
     }
   }
 }
