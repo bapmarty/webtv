@@ -3,6 +3,7 @@
 .navbar-container {
   display: flex;
   flex-direction: column;
+  z-index: 100;
   .navbar-header {
     display: flex;
     justify-content: space-between;
@@ -10,6 +11,8 @@
     align-items: center;
     border-bottom: 1px solid;
     border-color: lighten($purple, 50%);
+    background-color: $white;
+    z-index: 99;
     .navbar-header-title {
       h1 {
         a {
@@ -28,7 +31,8 @@
 
   .navbar-nav {
     background: $white;
-    position: relative;
+    position: absolute;
+    width: 100%;
     display: flex;
     flex-direction: column;
     .navbar-nav-list {
@@ -39,12 +43,20 @@
       .navbar-nav-item {
         display: block;
         padding: 7px 25px;
+        &:first-child {
+          padding-top: 20px;
+        }
         a {
           font-size: 1.1rem;
           text-decoration: none;
           color: $black;
+          transition: color .3s ease-in-out;
           &.active {
             color: $purple;
+          }
+          &:hover {
+            color: $purple;
+            transition: color .3s ease-in-out;
           }
           svg {
             margin-left: 5px;
