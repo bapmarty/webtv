@@ -10,7 +10,7 @@ const Navbar = () => {
       <nav className="navbar-container">
         <div className="navbar-header">
           <div className="navbar-header-title">
-            <h1><NavLink to="/"><span>B</span>apmarty</NavLink></h1>
+            <h1><NavLink to="/live"><span>B</span>apmarty</NavLink></h1>
           </div>
           <div className="navbar-header-bars">
             <FontAwesomeIcon icon={faBars} />
