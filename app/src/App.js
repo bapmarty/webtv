@@ -1,11 +1,13 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import Navbar from "./layouts/Navbar";
+
+import Routes from "./Router/Routes";
 
 function App() {
   return (
-    <div className="App">
-      Hello world <FontAwesomeIcon icon={faCoffee} />
-    </div>
+    <>
+      <Navbar />
+      <Routes />
+    </>
   );
 }
 

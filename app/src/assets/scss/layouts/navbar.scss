@@ -1,0 +1,96 @@
+@import "../variables";
+
+.navbar-container {
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  .navbar-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 25px;
+    align-items: center;
+    border-bottom: 1px solid;
+    border-color: lighten($purple, 50%);
+    background-color: $white;
+    z-index: 99;
+    .navbar-header-title {
+      h1 {
+        a {
+          color: $black;
+          text-decoration: none;
+          span {
+            color: $purple;
+          }
+        }
+      }
+    }
+    .navbar-header-bars {
+      font-size: 1.6rem;
+    }
+  }
+
+  .navbar-nav {
+    background: $white;
+    position: absolute;
+    top: -300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: top .3s ease-in-out;
+    .navbar-nav-list {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      list-style-type: none;
+      .navbar-nav-item {
+        display: block;
+        padding: 7px 25px;
+        &:first-child {
+          padding-top: 20px;
+        }
+        a {
+          font-size: 1.1rem;
+          text-decoration: none;
+          color: $black;
+          transition: color .3s ease-in-out;
+          &.active {
+            color: $purple;
+          }
+          &:hover {
+            color: $purple;
+            transition: color .3s ease-in-out;
+          }
+          svg {
+            margin-left: 5px;
+            font-size: .7rem;
+            vertical-align: 0px;
+          }
+        }
+      }
+    }
+    
+    .navbar-social-list {
+      display: flex;
+      justify-content: space-evenly;
+      list-style-type: none;
+      border-bottom: 1px solid;
+      border-color: lighten($purple, 50%);
+      padding: 20px 0;
+      .navbar-social-item {
+        a {
+          font-size: 1.1rem;
+          color: $black;
+          transition: color .3s ease-in-out;
+          &:hover {
+            color: $purple;
+            transition: color .3s ease-in-out;
+          }
+        }
+      }
+    }
+    &.open {
+      top: 61px;
+      transition: top .3s ease-in-out;
+    }
+  }
+}
