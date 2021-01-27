@@ -3,15 +3,16 @@ import { faBars, faCircle } from "@fortawesome/free-solid-svg-icons";
 import { faDiscord, faGithub, faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { NavLink } from "react-router-dom";
 
+import "../assets/scss/layouts/navbar.scss";
 const Navbar = () => {
   return (
     <>
-      <nav>
-        <div>
-          <div>
+      <nav className="navbar-container">
+        <div className="navbar-header">
+          <div className="navbar-header-title">
             <h1><span>B</span>apmarty</h1>
           </div>
-          <div>
+          <div className="navbar-header-bars">
             <FontAwesomeIcon icon={faBars} />
           </div>
         </div>

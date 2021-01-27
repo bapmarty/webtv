@@ -1,0 +1,22 @@
+@import "../variables";
+
+.navbar-container {
+  display: flex;
+  flex-direction: column;
+  .navbar-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 25px;
+    align-items: center;
+    .navbar-header-title {
+      h1 {
+        span {
+          color: $purple;
+        }
+      }
+    }
+    .navbar-header-bars {
+      font-size: 1.6rem;
+    }
+  }
+}
