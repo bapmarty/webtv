@@ -32,9 +32,11 @@
   .navbar-nav {
     background: $white;
     position: absolute;
+    top: -300px;
     width: 100%;
     display: flex;
     flex-direction: column;
+    transition: top .3s ease-in-out;
     .navbar-nav-list {
       position: relative;
       display: flex;
@@ -66,11 +68,13 @@
         }
       }
     }
-
+    
     .navbar-social-list {
       display: flex;
       justify-content: space-evenly;
       list-style-type: none;
+      border-bottom: 1px solid;
+      border-color: lighten($purple, 50%);
       padding: 20px 0;
       .navbar-social-item {
         a {
@@ -83,6 +87,10 @@
           }
         }
       }
+    }
+    &.open {
+      top: 61px;
+      transition: top .3s ease-in-out;
     }
   }
 }
