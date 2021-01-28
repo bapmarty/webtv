@@ -18,6 +18,8 @@ services:
       - 3002:3000
     environment:
       WEBTV_API_PORT: ${WEBTV_API_PORT}
+      TWITCH_CLIENT_ID: ${TWITCH_CLIENT_ID}
+      TWITCH_CLIENT_ID_SECRET: ${TWITCH_CLIENT_ID_SECRET}
     volumes:
       - ./api/:/usr/src/
       - ./api/package.json:/usr/src/package.json
