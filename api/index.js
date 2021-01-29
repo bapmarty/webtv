@@ -32,6 +32,8 @@ app.get('/', (req, res) => {
   res.json('hello world !');
 })
 
+require('./Routes/auth.routes')(app);
+
 // Listen
 app.listen(process.env.WEBTV_API_PORT, function () {
   console.log('localhost listening on port ' + process.env.WEBTV_API_PORT + '!');
