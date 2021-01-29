@@ -9,6 +9,7 @@ const Navbar = () => {
 
   const [icon, setIcon] = useState(faBars);
   const [navbarOpen, setNavbarOpen] = useState("navbar-nav");
+  const [user, setUser] = useState([]);
 
   const handleClick = () => {
     if (icon === faBars) {
@@ -18,6 +19,10 @@ const Navbar = () => {
       setIcon(faBars);
       setNavbarOpen("navbar-nav");
     }
+  }
+
+  const handleClickConnectTwitch = () => {
+    window.open(`https://id.twitch.tv/oauth2/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_API_HOST}/auth/callback&response_type=code&scope=user%3Aread%3Aemail`);
   }
 
   return (
@@ -37,6 +42,9 @@ const Navbar = () => {
             <li className="navbar-nav-item"><NavLink exact to='/prog' activeClassName="active">Programmation</NavLink></li>
             <li className="navbar-nav-item"><NavLink exact to='/info' activeClassName="active">Informations</NavLink></li>
             <li className="navbar-nav-item"><NavLink exact to='/rediff' activeClassName="active">Rediffusions</NavLink></li>
+          </ul>
+          <ul className="auth-mobile-btn">
+            <li onClick={handleClickConnectTwitch}>Se connecter <FontAwesomeIcon icon={faTwitch} /></li>
           </ul>
           <ul  className="navbar-social-list">
             <li className="navbar-social-item"><a href="https://discord.bapmarty.fr"><FontAwesomeIcon icon={faDiscord} /></a></li>

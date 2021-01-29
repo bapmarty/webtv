@@ -38,6 +38,7 @@
     flex-direction: column;
     transition: top .3s ease-in-out;
     .navbar-nav-list {
+      padding-bottom: 10px;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -88,6 +89,18 @@
         }
       }
     }
+
+    .auth-mobile-btn {
+      li {
+        padding: 12px 0;
+        font-weight: 600;
+        font-size: 1.1rem;
+        text-align: center;
+        background-color: $purple;
+        color: $white;
+      }
+    }
+
     &.open {
       top: 61px;
       transition: top .3s ease-in-out;
