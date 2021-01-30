@@ -92,10 +92,12 @@
 
     .auth-mobile-btn {
       li {
-        padding: 12px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 20px;
         font-weight: 600;
         font-size: 1.1rem;
-        text-align: center;
         background-color: $purple;
         color: $white;
       }

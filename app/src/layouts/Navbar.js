@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faCircle, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faCircle, faSignOutAlt, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { faDiscord, faGithub, faInstagram, faTwitch, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { NavLink } from "react-router-dom";
 
@@ -23,7 +23,13 @@ const Navbar = () => {
   }
 
   const handleClickConnectTwitch = () => {
-    window.open(`https://id.twitch.tv/oauth2/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_API_HOST}/auth/callback&response_type=code&scope=user_read`);
+    window.open(`https://id.twitch.tv/oauth2/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_API_HOST}/auth/callback&response_type=code&scope=user_read`, '_self');
+  }
+
+  const handleClickLogoutTwitch = () => {
+    Cookies.remove('twitch_access_token');
+    Cookies.remove('twitch_refresh_token');
+    setUser({});
   }
 
   const fetchData = () => {
@@ -67,7 +73,7 @@ const Navbar = () => {
             <li className="navbar-nav-item"><NavLink exact to='/rediff' activeClassName="active">Rediffusions</NavLink></li>
           </ul>
           <ul className="auth-mobile-btn">
-            {user.name ? (<li>{user.name}</li>) : (<li onClick={handleClickConnectTwitch}>Se connecter <FontAwesomeIcon icon={faTwitch} /></li>)}
+            {user.name ? (<li><div>{user.display_name}</div><div onClick={handleClickLogoutTwitch}><FontAwesomeIcon icon={faSignOutAlt} /></div></li>) : (<li onClick={handleClickConnectTwitch}>Se connecter <FontAwesomeIcon icon={faTwitch} /></li>)}
           </ul>
           <ul  className="navbar-social-list">
             <li className="navbar-social-item"><a href="https://discord.bapmarty.fr"><FontAwesomeIcon icon={faDiscord} /></a></li>
