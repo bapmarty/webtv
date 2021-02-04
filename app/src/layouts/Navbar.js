@@ -67,7 +67,7 @@ const Navbar = () => {
         </div>
         <div className={navbarOpen}>
           <ul className="navbar-nav-list">
-            <li className="navbar-nav-item"><NavLink exact to='/' activeClassName="active">Direct <FontAwesomeIcon icon={faCircle} /></NavLink></li>
+            <li className="navbar-nav-item"><NavLink exact to='/' activeClassName="active">Direct <FontAwesomeIcon className="live" icon={faCircle} /></NavLink></li>
             <li className="navbar-nav-item"><NavLink exact to='/prog' activeClassName="active">Programmation</NavLink></li>
             <li className="navbar-nav-item"><NavLink exact to='/info' activeClassName="active">Informations</NavLink></li>
             <li className="navbar-nav-item"><NavLink exact to='/rediff' activeClassName="active">Rediffusions</NavLink></li>
@@ -81,6 +81,23 @@ const Navbar = () => {
             <li className="navbar-social-item"><a href="https://instagram.com/baptistemrrt"><FontAwesomeIcon icon={faInstagram} /></a></li>
             <li className="navbar-social-item"><a href="https://youtube.com/"><FontAwesomeIcon icon={faYoutube} /></a></li>
             <li className="navbar-social-item"><a href="https://github.com/baptistemrt"><FontAwesomeIcon icon={faGithub} /></a></li>
+          </ul>
+          <ul className="auth-desktop-btn">
+            {user.name ? (
+              <li className="auth-desktop-account">
+                <div className="logo">
+                  <img src={user.logo} alt={user.name} />
+                </div>
+                <div className="name">
+                  <span>{user.display_name}</span>
+                </div>
+                <div className="logout-btn" onClick={handleClickLogoutTwitch}>
+                  <FontAwesomeIcon icon={faSignOutAlt} />
+                </div>
+              </li>
+              ) : (
+              <li className="auth-btn" onClick={handleClickConnectTwitch}>Se connecter <FontAwesomeIcon icon={faTwitch} /></li>
+              )}
           </ul>
         </div>
       </nav>

@@ -1,111 +1,251 @@
 @import "../variables";
 
-.navbar-container {
-  display: flex;
-  flex-direction: column;
-  z-index: 100;
-  .navbar-header {
+@media screen and (min-width: 982px) {
+  .navbar-container {
     display: flex;
-    justify-content: space-between;
-    padding: 15px 25px;
+    padding: 0 0 0 25px;
     align-items: center;
     border-bottom: 1px solid;
     border-color: lighten($purple, 50%);
     background-color: $white;
-    z-index: 99;
-    .navbar-header-title {
-      h1 {
-        a {
-          color: $black;
-          text-decoration: none;
-          span {
-            color: $purple;
+    z-index: 100;
+    
+    .navbar-header {
+      z-index: 99;
+      .navbar-header-title {
+        h1 {
+          a {
+            color: $black;
+            text-decoration: none;
+            span {
+              color: $purple;
+            }
           }
         }
       }
-    }
-    .navbar-header-bars {
-      font-size: 1.6rem;
-    }
-  }
-
-  .navbar-nav {
-    background: $white;
-    position: absolute;
-    top: -300px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    transition: top .3s ease-in-out;
-    .navbar-nav-list {
-      padding-bottom: 10px;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      list-style-type: none;
-      .navbar-nav-item {
-        display: block;
-        padding: 7px 25px;
-        &:first-child {
-          padding-top: 20px;
-        }
-        a {
-          font-size: 1.1rem;
-          text-decoration: none;
-          color: $black;
-          transition: color .3s ease-in-out;
-          &.active {
-            color: $purple;
-          }
-          &:hover {
-            color: $purple;
-            transition: color .3s ease-in-out;
-          }
-          svg {
-            margin-left: 5px;
-            font-size: .7rem;
-            vertical-align: 0px;
-          }
-        }
+      .navbar-header-bars {
+        display: none;
       }
     }
     
-    .navbar-social-list {
+    .navbar-nav {
+      width: 100%;
       display: flex;
-      justify-content: space-evenly;
-      list-style-type: none;
-      border-bottom: 1px solid;
-      border-color: lighten($purple, 50%);
-      padding: 20px 0;
-      .navbar-social-item {
-        a {
-          font-size: 1.1rem;
-          color: $black;
-          transition: color .3s ease-in-out;
-          &:hover {
-            color: $purple;
+      justify-content: space-between;
+      align-items: center;
+      .navbar-nav-list {
+        margin-left: 25px;
+        flex: 2;
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        list-style-type: none;
+        .navbar-nav-item {
+          margin: 0 15px;
+          a {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: $black;
+            text-decoration: none;
+            &.active {
+              color: $purple;
+            }
+            &:hover {
+              color: $purple;
+              transition: color .3s ease-in-out;
+            }
+            .live {
+              font-size: .8rem;
+            }
+          }
+        }
+      }
+      
+      .navbar-social-list {
+        display: flex;
+        list-style-type: none;
+        align-items: center;
+        .navbar-social-item {
+          margin: 0 10px;
+          a {
+            font-size: 1.1rem;
+            color: $black;
             transition: color .3s ease-in-out;
+            &:hover {
+              color: $purple;
+              transition: color .3s ease-in-out;
+            }
+          }
+        }
+      }
+      
+      .auth-mobile-btn {
+        display: none;
+      }
+      
+      .auth-desktop-btn {
+        li.auth-btn {
+          padding: 21px 40px;
+          list-style-type: none;
+          background: $purple;
+          color: $white;
+          font-weight: 600;
+          font-size: 1.1rem;
+          transition: all .4s ease-in-out;
+          &:hover {
+            background-color: darken($purple, 10%);
+            color: darken($white, 10%);
+            transition: all .2s ease-in-out;
+          }
+        }
+      }
+      
+      .auth-desktop-account {
+        display: flex;
+        align-items: center;
+        font-size: 1.1rem;
+        background: $purple;
+        color: $white;
+        font-weight: 600;
+        .logo {
+          margin-left: 40px;
+          img {
+            margin-top: 3px;
+            width: 29px;
+            border-radius: 50%;
+          }
+        }
+        .name {
+          margin: 0 40px 0 10px;
+        }
+        .logout-btn {
+          padding: 22px 20px;
+          background: lighten($purple, 5%);
+          transition: all .2s ease-in-out;
+          &:hover {
+            background-color: darken($purple, 10%);
+            color: darken($white, 10%);
+            transition: all .2s ease-in-out;
           }
         }
       }
     }
+  }
+}
 
-    .auth-mobile-btn {
-      li {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px 20px;
-        font-weight: 600;
-        font-size: 1.1rem;
-        background-color: $purple;
-        color: $white;
+@media screen and (max-width: 981px) {
+  .navbar-container {
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    .navbar-header {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 25px;
+      align-items: center;
+      border-bottom: 1px solid;
+      border-color: lighten($purple, 50%);
+      background-color: $white;
+      z-index: 99;
+      .navbar-header-title {
+        h1 {
+          a {
+            color: $black;
+            text-decoration: none;
+            span {
+              color: $purple;
+            }
+          }
+        }
+      }
+      .navbar-header-bars {
+        font-size: 1.6rem;
       }
     }
-
-    &.open {
-      top: 61px;
+  
+    .navbar-nav {
+      background: $white;
+      position: absolute;
+      top: -300px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
       transition: top .3s ease-in-out;
+      .navbar-nav-list {
+        padding-bottom: 10px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        .navbar-nav-item {
+          display: block;
+          padding: 7px 25px;
+          &:first-child {
+            padding-top: 20px;
+          }
+          a {
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: $black;
+            transition: color .3s ease-in-out;
+            &.active {
+              color: $purple;
+            }
+            &:hover {
+              color: $purple;
+              transition: color .3s ease-in-out;
+            }
+            svg {
+              margin-left: 5px;
+              font-size: .7rem;
+              vertical-align: 0px;
+            }
+          }
+        }
+      }
+      
+      .navbar-social-list {
+        display: flex;
+        justify-content: space-evenly;
+        list-style-type: none;
+        border-bottom: 1px solid;
+        border-color: lighten($purple, 50%);
+        padding: 20px 0;
+        .navbar-social-item {
+          a {
+            font-size: 1.1rem;
+            color: $black;
+            transition: color .3s ease-in-out;
+            &:hover {
+              color: $purple;
+              transition: color .3s ease-in-out;
+            }
+          }
+        }
+      }
+  
+      .auth-mobile-btn {
+        li {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 12px 20px;
+          font-weight: 600;
+          font-size: 1.1rem;
+          background-color: $purple;
+          color: $white;
+        }
+      }
+
+      .auth-desktop-btn {
+        display: none;
+      }
+  
+      &.open {
+        top: 61px;
+        transition: top .3s ease-in-out;
+      }
     }
   }
 }
