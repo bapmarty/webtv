@@ -1,16 +1,6 @@
 version: '3.5'
 
 services:
-  db:
-    image: mongo
-    restart: always
-    ports:
-      - ${MONGO_PORT}:${MONGO_PORT}
-    volumes:
-      - db_data:/data/db
-    networks:
-      - webtv
-
   api:
     build: ./api/
     restart: always
@@ -26,6 +16,24 @@ services:
       - ./api/:/usr/src/
       - ./api/package.json:/usr/src/package.json
       - /usr/src/node_modules
+    labels:
+      traefik.enable: "true"
+      traefik.docker.network: "traefik_network"
+      traefik.http.services.tvapibaptistemrtfr.loadbalancer.server.port: "3000"
+      #HTTP
+      traefik.http.routers.api-tvbaptistemrtfr.entrypoints: "http"
+      traefik.http.routers.api-tvbaptistemrtfr.rule: "Host(`bapmarty.fr`) && Path(`/api`)"
+      traefik.http.routers.api-tvbaptistemrtfr.middlewares: redirect-https
+      #HTTPS
+      traefik.http.routers.api-tvbaptistemrtfr-secure.entrypoints: "https"
+      traefik.http.routers.api-tvbaptistemrtfr-secure.rule: "Host(`bapmarty.fr`) && Path(`/api`)"
+      #TLS
+      traefik.http.routers.api-tvbaptistemrtfr-secure.tls: "true"
+      traefik.http.routers.api-tvbaptistemrtfr-secure.tls.certresolver: "le-bapmarty"
+      traefik.http.routers.api-tvbaptistemrtfr-secure.tls.domains[0].main: "bapmarty.fr"
+      #Redirect https
+      traefik.http.middlewares.redirect-https.redirectscheme.scheme: "https"
+      traefik.http.middlewares.redirect-https.redirectscheme.permanent: "true"
     networks:
       - webtv
 
@@ -41,12 +49,27 @@ services:
       - ./app/package.json:/usr/src/package.json
       - ./app/:/usr/src/
       - /usr/src/node_modules
+    labels:
+      traefik.enable: "true"
+      traefik.docker.network: "traefik_network"
+      traefik.http.services.tvbaptistemrtfr.loadbalancer.server.port: "3000"
+      #HTTP
+      traefik.http.routers.front-tvbaptistemrtfr.entrypoints: "http"
+      traefik.http.routers.front-tvbaptistemrtfr.rule: "Host(`bapmarty.fr`)"
+      traefik.http.routers.front-tvbaptistemrtfr.middlewares: redirect-https
+      #HTTPS
+      traefik.http.routers.front-tvbaptistemrtfr-secure.entrypoints: "https"
+      traefik.http.routers.front-tvbaptistemrtfr-secure.rule: "Host(`bapmarty.fr`)"
+      #TLS
+      traefik.http.routers.front-tvbaptistemrtfr-secure.tls: "true"
+      traefik.http.routers.front-tvbaptistemrtfr-secure.tls.certresolver: "le-bapmarty"
+      traefik.http.routers.front-tvbaptistemrtfr-secure.tls.domains[0].main: "bapmarty.fr"
+      #Redirect https
+      traefik.http.middlewares.redirect-https.redirectscheme.scheme: "https"
+      traefik.http.middlewares.redirect-https.redirectscheme.permanent: "true"
     networks:
       - webtv
 
 networks:
   webtv:
     name: webtv
-
-volumes:
-  db_data: {}
