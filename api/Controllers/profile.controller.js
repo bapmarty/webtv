@@ -1,4 +1,3 @@
-const fetch = require('node-fetch');
 const { twitch } = require('../models/twitch');
 
 exports.profile = (req, res) => {

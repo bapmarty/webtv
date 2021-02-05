@@ -34,6 +34,7 @@ app.get('/', (req, res) => {
 
 require('./Routes/auth.routes')(app);
 require('./Routes/user.routes')(app);
+require('./Routes/stream.routes')(app);
 
 // Listen
 app.listen(process.env.WEBTV_API_PORT, function () {
