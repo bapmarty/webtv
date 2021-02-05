@@ -56,7 +56,17 @@
               transition: color .3s ease-in-out;
             }
             .live {
-              font-size: .8rem;
+              position: absolute;
+              top: 8px;
+              left: 5px;
+              font-size: 8px;
+              &.on {
+                color: red;
+              }
+
+              &.off {
+                color: $black;
+              }
             }
           }
         }
@@ -196,10 +206,18 @@
               color: $purple;
               transition: color .3s ease-in-out;
             }
-            svg {
-              margin-left: 5px;
-              font-size: .7rem;
-              vertical-align: 0px;
+            .live {
+              position: absolute;
+              left: 80px;
+              top: 29px;
+              font-size: 8px;
+              &.on {
+                color: red;
+              }
+
+              &.off {
+                color: $black;
+              }
             }
           }
         }

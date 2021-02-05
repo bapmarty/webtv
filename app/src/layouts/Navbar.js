@@ -10,7 +10,16 @@ const Navbar = () => {
 
   const [icon, setIcon] = useState(faBars);
   const [navbarOpen, setNavbarOpen] = useState("navbar-nav");
+  const [liveUp, setliveUp] = useState("live");
   const [user, setUser] = useState({});
+
+  const OPTIONS = { method: 'GET',
+                    headers: {
+                      'Accept': '*/*',
+                      'Content-Type': 'application/json',
+                      'Access-Control-Allow-Origin': "*"
+                    }
+                  }
 
   const handleClick = () => {
     if (icon === faBars) {
@@ -32,26 +41,27 @@ const Navbar = () => {
     setUser({});
   }
 
-  const fetchData = () => {
-    fetch(`${process.env.REACT_APP_API_HOST}/user/profile/${Cookies.get('twitch_access_token')}`, 
-    { method: 'GET',
-      headers: {
-        'Accept': '*/*',
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': "*"
-      }
-    })
+  const fetchUserData = () => {
+    fetch(`${process.env.REACT_APP_API_HOST}/user/profile/${Cookies.get('twitch_access_token')}`, OPTIONS)
     .then(res => { return res.json() })
     .then(data => {
-      console.log(data);
       setUser(data);
+    });
+  }
+
+  const fetchLiveData = () => {
+    fetch(`${process.env.REACT_APP_API_HOST}/stream/${Cookies.get('twitch_access_token')}`, OPTIONS)
+    .then(res => { return res.json() })
+    .then(data => {
+      (data.stream === null) ? setliveUp('live off') : setliveUp('live on');
     });
   }
 
   useEffect(() => {
     if (Cookies.get('twitch_access_token')) {
-      fetchData();
+      fetchUserData();
     }
+    fetchLiveData();
   }, []);
 
   return (
@@ -67,7 +77,7 @@ const Navbar = () => {
         </div>
         <div className={navbarOpen}>
           <ul className="navbar-nav-list">
-            <li className="navbar-nav-item"><NavLink exact to='/' activeClassName="active">Direct <FontAwesomeIcon className="live" icon={faCircle} /></NavLink></li>
+            <li className="navbar-nav-item"><NavLink exact to='/' activeClassName="active">Direct <FontAwesomeIcon className={liveUp} icon={faCircle} /></NavLink></li>
             <li className="navbar-nav-item"><NavLink exact to='/prog' activeClassName="active">Programmation</NavLink></li>
             <li className="navbar-nav-item"><NavLink exact to='/info' activeClassName="active">Informations</NavLink></li>
             <li className="navbar-nav-item"><NavLink exact to='/rediff' activeClassName="active">Rediffusions</NavLink></li>
