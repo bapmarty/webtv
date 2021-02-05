@@ -1,16 +1,6 @@
 version: '3.5'
 
 services:
-  db:
-    image: mongo
-    restart: always
-    ports:
-      - ${MONGO_PORT}:${MONGO_PORT}
-    volumes:
-      - db_data:/data/db
-    networks:
-      - webtv
-
   api:
     build: ./api/
     restart: always
@@ -20,6 +10,7 @@ services:
       WEBTV_API_PORT: ${WEBTV_API_PORT}
       TWITCH_CLIENT_ID: ${TWITCH_CLIENT_ID}
       TWITCH_CLIENT_ID_SECRET: ${TWITCH_CLIENT_ID_SECRET}
+      CHANNEL_ID: ${CHANNEL_ID}
       REDIRECT_URI: ${REACT_APP_API_HOST}
       REDIRECT_URI_APP: ${APP_HOST}
     volumes:
