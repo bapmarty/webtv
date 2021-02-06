@@ -1,0 +1,74 @@
+@import "../variables";
+
+.stream {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 30px auto 0;
+  .header-live {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .title {
+      flex: 2;
+      padding-bottom: 5px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      span {
+        margin-right: 5px;
+        strong {
+          color: $purple;
+        }
+      }
+    }
+    .game {
+      display: flex;
+      justify-content: space-between;
+      width: 300px;
+      padding: 10px 0;
+      background-color: $purple;
+      text-align: center;
+      color: $white;
+      p {
+        margin-left: 10px;
+        font-weight: 600;
+      }
+      span {
+        margin-right: 10px;
+        display: block;
+        position: relative;
+      }
+    }
+  }
+  .stream-embed {
+    display: flex;
+    .live-embed {
+      flex: 2;
+      height: 500px;
+    }
+  }
+}
+
+@media screen and (max-width: 981px) {
+  .stream {
+    width: 100%;
+    .header-live {
+      .title {
+        flex: 3;
+      }
+      .game {
+        display: none;
+      }
+    }
+    .stream-embed {
+      flex-direction: column;
+      .live-embed {
+        height: 240px;
+      }
+      .chat-embed {
+        display: block;
+        height: 500px;
+      }
+    }
+  }
+}

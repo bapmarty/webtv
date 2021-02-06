@@ -1,6 +1,6 @@
 @import "../variables";
 
-@media screen and (min-width: 982px) {
+@media screen and (min-width: 1092px) {
   .navbar-container {
     display: flex;
     padding: 0 0 0 25px;
@@ -78,6 +78,150 @@
         align-items: center;
         .navbar-social-item {
           margin: 0 10px;
+          a {
+            font-size: 1.1rem;
+            color: $black;
+            transition: color .3s ease-in-out;
+            &:hover {
+              color: $purple;
+              transition: color .3s ease-in-out;
+            }
+          }
+        }
+      }
+      
+      .auth-mobile-btn {
+        display: none;
+      }
+      
+      .auth-desktop-btn {
+        li.auth-btn {
+          padding: 21px 40px;
+          list-style-type: none;
+          background: $purple;
+          color: $white;
+          font-weight: 600;
+          font-size: 1.1rem;
+          transition: all .4s ease-in-out;
+          &:hover {
+            background-color: darken($purple, 10%);
+            color: darken($white, 10%);
+            transition: all .2s ease-in-out;
+          }
+        }
+      }
+      
+      .auth-desktop-account {
+        display: flex;
+        align-items: center;
+        font-size: 1.1rem;
+        background: $purple;
+        color: $white;
+        font-weight: 600;
+        .logo {
+          margin-left: 40px;
+          img {
+            margin-top: 3px;
+            width: 29px;
+            border-radius: 50%;
+          }
+        }
+        .name {
+          margin: 0 40px 0 10px;
+        }
+        .logout-btn {
+          padding: 22px 20px;
+          background: lighten($purple, 5%);
+          transition: all .2s ease-in-out;
+          &:hover {
+            background-color: darken($purple, 10%);
+            color: darken($white, 10%);
+            transition: all .2s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 982px) and (max-width: 1091px){
+  .navbar-container {
+    display: flex;
+    padding: 0 0 0 15px;
+    align-items: center;
+    border-bottom: 1px solid;
+    border-color: lighten($purple, 50%);
+    background-color: $white;
+    z-index: 100;
+    
+    .navbar-header {
+      z-index: 99;
+      .navbar-header-title {
+        h1 {
+          a {
+            color: $black;
+            text-decoration: none;
+            span {
+              color: $purple;
+            }
+          }
+        }
+      }
+      .navbar-header-bars {
+        display: none;
+      }
+    }
+    
+    .navbar-nav {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .navbar-nav-list {
+        margin-left: 15px;
+        flex: 2;
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        list-style-type: none;
+        .navbar-nav-item {
+          margin: 0 5px;
+          a {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: $black;
+            text-decoration: none;
+            &.active {
+              color: $purple;
+            }
+            &:hover {
+              color: $purple;
+              transition: color .3s ease-in-out;
+            }
+            .live {
+              position: absolute;
+              top: 8px;
+              left: -5px;
+              font-size: 8px;
+              &.on {
+                color: red;
+              }
+
+              &.off {
+                color: $black;
+              }
+            }
+          }
+        }
+      }
+      
+      .navbar-social-list {
+        display: flex;
+        list-style-type: none;
+        align-items: center;
+        .navbar-social-item {
+          margin: 0 7px;
           a {
             font-size: 1.1rem;
             color: $black;

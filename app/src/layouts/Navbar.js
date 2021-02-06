@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faCircle, faSignOutAlt, faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -5,7 +6,7 @@ import { faDiscord, faGithub, faInstagram, faTwitch, faYoutube } from "@fortawes
 import { NavLink } from "react-router-dom";
 
 import "../assets/scss/layouts/navbar.scss";
-import { useEffect, useState } from "react";
+
 const Navbar = () => {
 
   const [icon, setIcon] = useState(faBars);
@@ -69,7 +70,7 @@ const Navbar = () => {
       <nav className="navbar-container">
         <div className="navbar-header">
           <div className="navbar-header-title">
-            <h1><NavLink exact to="/"><span>B</span>apmarty </NavLink></h1>
+            <h1><NavLink exact to="/"><span>B</span>ap<span>m</span>arty</NavLink></h1>
           </div>
           <div className="navbar-header-bars" onClick={handleClick}>
             <FontAwesomeIcon icon={icon} />
