@@ -8,6 +8,7 @@ import "../assets/scss/components/home.scss";
 const Home = () => {
 
   const [channelInfo, setChannelInfo] = useState({});
+  const [host, setHost] = useState(new URL(window.location.href).hostname);
 
   const OPTIONS = { method: 'GET',
                     headers: {
@@ -47,7 +48,7 @@ const Home = () => {
         </div>
         <div className="stream-embed">
           <div className="live-embed">
-            <iframe src="https://player.twitch.tv/?channel=bapmarty&parent=localhost"
+            <iframe src={`https://player.twitch.tv/?channel=bapmarty&parent=${host}`}
                     title="twitch_player"
                     width="100%"
                     height="100%"
@@ -60,7 +61,7 @@ const Home = () => {
                     title="twitch_chat"
                     scrolling="no"
                     id="chat_embed"
-                    src="https://www.twitch.tv/embed/bapmarty/chat?parent=localhost&darkpopout"
+                    src={`https://www.twitch.tv/embed/bapmarty/chat?parent=${host}&darkpopout`}
                     height="100%"
                     width="100%">
               </iframe>
