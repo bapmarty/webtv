@@ -48,3 +48,27 @@
     }
   }
 }
+
+@media screen and (max-width: 981px) {
+  .stream {
+    width: 100%;
+    .header-live {
+      .title {
+        flex: 3;
+      }
+      .game {
+        display: none;
+      }
+    }
+    .stream-embed {
+      flex-direction: column;
+      .live-embed {
+        height: 240px;
+      }
+      .chat-embed {
+        display: block;
+        height: 500px;
+      }
+    }
+  }
+}
