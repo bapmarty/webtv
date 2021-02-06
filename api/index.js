@@ -1,4 +1,5 @@
 const express = require("express");
+const favicon = require("serve-favicon");
 var bodyParser = require('body-parser');
 var cors = require("cors");
 require('dotenv').config();
@@ -8,6 +9,9 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
+
+// favicon
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
 
 app.use((req, res, next) => {
   const origin = req.get('Access-Control-Allow-Origin');
