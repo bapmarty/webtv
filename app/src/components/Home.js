@@ -40,7 +40,7 @@ const Home = () => {
             {channelInfo.status ? channelInfo.status : 'Rien de spécial'}
           </div>
           <div className="game">
-            <p>{channelInfo.game ? channelInfo.game : 'No game'}</p>
+            <p>{channelInfo.game ? channelInfo.game : ''}</p>
             <span>
               <FontAwesomeIcon icon={faGamepad} />
             </span>
