@@ -13,7 +13,7 @@ const Informations = () => {
           <p className="text">
             Salut, moi c'est Baptiste AKA <span className="surligned">Bapmarty</span>. J'ai 20 ans et je suis étudiant en informatique à 42 et encadrant d'escalade. 
             À travers ce site internet je souhaite te faire decouvrir un peu monde et comment je passe mon temps. 
-            Tu trouveras plus bas un peu plus d'informations sur moi en escalade et en informatique mais aussi en gamimg <span className="italic">(parce que oui de temps en temps je joue)</span>.
+            Tu trouveras plus bas un peu plus d'informations sur moi en escalade et en informatique mais aussi en gamimg <span className="italic">(Et oui de temps en temps je joue...)</span>.
             <br />Bienvenue sur ma chaîne !
           </p>
         </div>
