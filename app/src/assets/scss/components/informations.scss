@@ -1,0 +1,41 @@
+@import "../variables";
+
+.info-pre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 150px 0;
+  .logo {
+    img {
+      width: 128px;
+      padding: 5px;
+      border-radius: 50%;
+      border: 3px solid $purple;
+    }
+  }
+  .presentation {
+    position: relative;
+    margin-left: 15px;
+    .text {
+      font-size: 1.2rem;
+      font-weight: 500;
+      text-align: justify;
+      .surligned {
+        position: relative;
+        display: inline-block;
+        font-weight: 600;
+        &:before {
+          content: "";
+          position: absolute;
+          width: 83px;
+          height: 20px;
+          left: 7px;
+          top: 6px;
+          background-color: $purple;
+          opacity: 0.5;
+          z-index: -1;
+        }
+      }
+    }
+  }
+}
