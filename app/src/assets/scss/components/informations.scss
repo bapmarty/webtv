@@ -1,0 +1,197 @@
+@import "../variables";
+
+.surligned {
+  position: relative;
+  font-weight: 600;
+  &:before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 6px;
+    background-color: $purple;
+    opacity: 0.5;
+    z-index: -1;
+  }
+}
+
+@media screen and (max-width: 981px) {
+  .pres-section {
+    margin-top: 50px;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2fr, 1fr);
+    grid-auto-rows: minmax(auto, 100%);
+    .logo {
+      grid-row: 1;
+      img {
+        display: block;
+        margin: 0 auto;
+        width: 128px;
+        padding: 5px;
+        border-radius: 50%;
+        border: 3px solid $purple;
+      }
+    }
+    .presentation {
+      grid-row: 2;
+      position: relative;
+      .text {
+        padding: 0 5px;
+        font-size: 1.2rem;
+        font-weight: 500;
+        text-align: justify;
+        .surligned {
+          &:before {
+            width: 83px;
+            height: 20px;
+          }
+        }
+      }
+    }
+  }
+  
+  .setup-section {
+    margin-top: 50px;
+    .setup-title {
+      position: relative;
+      display: block;
+      margin: 0 0 20px 0;
+      h1 {
+        display: block;
+        position: relative;
+        font-size: 2.5rem;
+        text-align: center;
+        .surligned {
+          &:before {
+            width: 200px;
+            height: 27px;
+          }
+        }
+      }
+    }
+    .setup-content {
+      margin: 0 50px 50px;
+      display: grid;
+      grid-gap: 20px;
+      grid-template-rows: repeat(2fr, 1fr);
+      grid-auto-rows: minmax(auto, 100%);
+      .config-live{
+        grid-row: 2;
+        h3 {
+          text-align: center;
+          margin-bottom: 15px;
+        }
+        ul {
+          display: grid;
+          grid-template-columns: repeat(1fr, 1fr);
+          grid-auto-rows: minmax(auto, 100%);
+          grid-gap: 10px 0;
+          list-style-type: none;
+          li::before {
+            content: "\2022";
+            color: $purple;
+            font-weight: bold;
+            display: inline-block;
+            width: .5em;
+            margin-left: -1em;
+          }
+        }
+      }
+      .devices-img {
+        grid-column: 1;
+        img {
+          width: 256px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 982px) {
+  .pres-section {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-rows: repeat(3fr, 1fr);
+    grid-auto-rows: minmax(auto, auto);
+    margin: 50px 150px;
+    .logo {
+      grid-column: 1;
+      img {
+        width: 128px;
+        padding: 5px;
+        border-radius: 50%;
+        border: 3px solid $purple;
+      }
+    }
+    .presentation {
+      grid-column: 2;
+      position: relative;
+      margin-left: 15px;
+      .text {
+        font-size: 1.2rem;
+        font-weight: 500;
+        text-align: justify;
+        .surligned {
+          &:before {
+            width: 83px;
+            height: 20px;
+          }
+        }
+      }
+    }
+  }
+  
+  .setup-section {
+    .setup-title {
+      position: relative;
+      display: block;
+      margin: 0 0 20px 0;
+      h1 {
+        display: block;
+        position: relative;
+        font-size: 2.5rem;
+        text-align: center;
+        .surligned {
+          &:before {
+            width: 200px;
+            height: 27px;
+          }
+        }
+      }
+    }
+    .setup-content {
+      margin: 0 50px 50px;
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: repeat(1fr, 1fr);
+      grid-auto-rows: minmax(auto, auto);
+      .config-live, .config-dev{
+        grid-column: 2;
+        h3 {
+          margin-bottom: 15px;
+        }
+        ul {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-auto-rows: minmax(auto, auto);
+          grid-gap: 0 20px;
+          list-style-type: none;
+          li::before {
+            content: "\2022";
+            color: $purple;
+            font-weight: bold;
+            display: inline-block;
+            width: .5em;
+            margin-left: -1em;
+          }
+        }
+      }
+      .devices-img {
+        grid-column: 1;
+        img {
+          width: 512px;
+        }
+      }
+    }
+  }
+}
