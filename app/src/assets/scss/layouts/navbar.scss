@@ -374,6 +374,8 @@
         border-bottom: 1px solid;
         border-color: lighten($purple, 50%);
         padding: 20px 0;
+        background-color: $white;
+        z-index: 1000;
         .navbar-social-item {
           a {
             font-size: 1.1rem;
