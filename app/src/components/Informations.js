@@ -41,11 +41,12 @@ const Informations = () => {
               <li>Seagate Barracuda 2To</li>
               <li>Seagate Barracuda 1To</li>
               <li>Corsair RM650x (v2), 650W</li>
-              <li>Ecran 1</li>
-              <li>Ecran 2</li>
-              <li>Clavier</li>
+              <li>Écran principal Asus VG275 27" - 75hz</li>
+              <li>Écran secondaire Samsung 27" - 60Hz</li>
+              <li>Clavier Razer Hunstman Elite</li>
               <li>Corsair M65 Elite</li>
-              <li>Corsair Casque</li>
+              <li>Casque Corsair HS60</li>
+              <li>Webcam Logitech C920pro</li>
             </ul>
           </div>
         </div>
