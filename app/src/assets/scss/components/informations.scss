@@ -16,11 +16,13 @@
 
 
 .pres-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-rows: repeat(3fr, 1fr);
+  grid-auto-rows: minmax(auto, auto);
   margin: 50px 150px;
   .logo {
+    grid-column: 1;
     img {
       width: 128px;
       padding: 5px;
@@ -29,6 +31,7 @@
     }
   }
   .presentation {
+    grid-column: 2;
     position: relative;
     margin-left: 15px;
     .text {
@@ -67,7 +70,7 @@
     margin: 0 50px 50px;
     display: grid;
     grid-gap: 20px;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1fr, 1fr);
     grid-auto-rows: minmax(auto, auto);
     .config-live, .config-dev{
       grid-column: 2;
