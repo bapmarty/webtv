@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faGamepad } from '@fortawesome/free-solid-svg-icons'
+import { faExpand, faGamepad, faHeart, faMoneyBillAlt } from '@fortawesome/free-solid-svg-icons'
 
 import "../assets/scss/components/home.scss";
 
 const Home = () => {
 
+  const [user, setUser] = useState({});
   const [channelInfo, setChannelInfo] = useState({});
   const [host, setHost] = useState(new URL(window.location.href).hostname);
 
@@ -19,12 +20,24 @@ const Home = () => {
                   }
 
   const fetchData = () => {
+    fetch(`${process.env.REACT_APP_API_HOST}/user/profile/${Cookies.get('twitch_access_token')}`, OPTIONS)
+    .then(res => { return res.json() })
+    .then(data => {
+      setUser(data);
+    });
     fetch(`${process.env.REACT_APP_API_HOST}/channel/${Cookies.get('twitch_access_token')}`, OPTIONS)
     .then(res => { return res.json() })
     .then(data => {
-      console.log(data);
       setChannelInfo(data);
     });
+  }
+
+  const twitchFollowBtn = () => {
+    window.open('https://twitch.tv/bapmarty', '_blank');
+  }
+
+  const streamLabsDonation = () => {
+    window.open('https://streamlabs.com/bapmarty1', '_blank');
   }
 
   useEffect(() => {
@@ -34,7 +47,7 @@ const Home = () => {
   return (
     <>
       <section className="stream">
-        <div className="header-live">
+        <section className="header-live">
           <div className="title">
             <span>[<strong>{channelInfo.broadcaster_language ? channelInfo.broadcaster_language.toUpperCase() : 'FR'}</strong>]</span>
             {channelInfo.status ? channelInfo.status : 'Rien de spécial'}
@@ -45,8 +58,8 @@ const Home = () => {
               <FontAwesomeIcon icon={faGamepad} />
             </span>
           </div>
-        </div>
-        <div className="stream-embed">
+        </section>
+        <section className="stream-embed">
           <div className="live-embed">
             <iframe src={`https://player.twitch.tv/?channel=bapmarty&parent=${host}`}
                     title="twitch_player"
@@ -66,7 +79,17 @@ const Home = () => {
                     width="100%">
               </iframe>
           </div>
-        </div>
+        </section>
+        <section className="btns-section">
+          <section className="twitch-btn">
+            <button className="follow-btn" onClick={twitchFollowBtn}><FontAwesomeIcon icon={faHeart} /> Suivre</button>
+            <button className="disable">S'abonner</button>
+            <button className="" onClick={streamLabsDonation}><FontAwesomeIcon icon={faMoneyBillAlt} /> Faire un don</button>
+          </section>
+          <section className="theater-mode-btn-section">
+            <button>Mode théâtre <FontAwesomeIcon icon={faExpand} /></button>
+          </section>
+        </section>
       </section>
     </>
   );
