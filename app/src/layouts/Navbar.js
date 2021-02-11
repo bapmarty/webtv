@@ -33,7 +33,7 @@ const Navbar = () => {
   }
 
   const handleClickConnectTwitch = () => {
-    window.open(`https://id.twitch.tv/oauth2/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_API_HOST}/auth/callback&response_type=code&scope=user_read`, '_self');
+    window.open(`https://id.twitch.tv/oauth2/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_API_HOST}/auth/callback&response_type=code&scope=user_read%20user_follows_edit`, '_self');
   }
 
   const handleClickLogoutTwitch = () => {
