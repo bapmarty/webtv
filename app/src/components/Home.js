@@ -81,14 +81,10 @@ const Home = () => {
           </div>
         </section>
         <section className="btns-section">
-          <section className="twitch-btn">
-            <button className="follow-btn" onClick={twitchFollowBtn}><FontAwesomeIcon icon={faHeart} /> Suivre</button>
-            <button className="disable">S'abonner</button>
-            <button className="" onClick={streamLabsDonation}><FontAwesomeIcon icon={faMoneyBillAlt} /> Faire un don</button>
-          </section>
-          <section className="theater-mode-btn-section">
-            <button>Mode théâtre <FontAwesomeIcon icon={faExpand} /></button>
-          </section>
+          <button className="follow-btn" onClick={twitchFollowBtn}><FontAwesomeIcon icon={faHeart} /> Suivre</button>
+          <button className="disable subscribe-btn">S'abonner</button>
+          <button className="donation-btn" onClick={streamLabsDonation}><FontAwesomeIcon icon={faMoneyBillAlt} /> Faire un don</button>
+          <button className="theater-btn">Mode théâtre <FontAwesomeIcon icon={faExpand} /></button>
         </section>
       </section>
     </>

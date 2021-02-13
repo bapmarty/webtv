@@ -1,15 +1,10 @@
 @import "../variables";
 
 .stream {
-  width: 80%;
-  margin: 30px auto 0;
+  width: 85%;
+  margin: 25px auto 0;
   .header-live {
-    display: grid;
-    grid-template-rows: repeat(3fr, 1fr);
-    grid-auto-columns: minmax(300px, auto);
-    align-items: center;
     .title {
-      grid-column: 1 / 3;
       font-size: 1.2rem;
       font-weight: 600;
       span {
@@ -22,7 +17,6 @@
     .game {
       display: flex;
       justify-content: space-between;
-      grid-column: 3;
       padding: 10px 0;
       background-color: $purple;
       text-align: center;
@@ -40,62 +34,117 @@
   }
 
   .stream-embed {
-    display: grid;
-    grid-template-rows: repeat(3fr, 1fr);
-    grid-auto-columns: minmax(300px, auto);
-    grid-auto-rows: minmax(450px, auto);
-    align-items: center;
-    .live-embed {
-      grid-column: 1 / 3;
+    .live-embed, .chat-embed {
       height: 100%;
-    }
-    .chat-embed {
-      height: 100%;
-      grid-column: 3;
     }
   }
 
   .btns-section {
     display: grid;
-    grid-template-columns: repeat(3fr, 1fr);
-    grid-auto-columns: minmax(300px, auto);
+    grid-template-columns: repeat(8, 1fr);
+    gap: 0 10px;
+    grid-auto-columns: minmax(150px, auto);
+    justify-content: center;
     margin-top: 5px;
-    .twitch-btn, .theater-mode-btn-section {
-      button {
-        background-color: darken($white, 5%);
-        padding: 8px 15px;
-        border: none;
-        color: $black;
-        font-size: 1.1rem;
-        font-weight: 500;
-        &.follow-btn {
-          margin-right: 15px;
-          background-color: $purple;
-          color: $white;
-          transition: all .4s ease-in-out;
-          &:hover {
-            background-color: darken($white, 5%);
-            color: $purple;
-            transition: all .4s ease-in-out;
-          }
-        }
+    width: 100%;
+    button {
+      background-color: darken($white, 5%);
+      padding: 7px 5px;
+      border: none;
+      border-radius: 3px;
+      color: $black;
+      font-size: 1.1rem;
+      font-weight: 500;
+      &.follow-btn {
+        grid-column: 1;
+        background-color: $purple;
+        color: $white;
         transition: all .4s ease-in-out;
         &:hover {
-          background-color: $purple;
-          color: $white;
+          background-color: darken($white, 5%);
+          color: $purple;
           transition: all .4s ease-in-out;
         }
       }
-    }
-    .twitch-btn {
-      grid-column: 1 / 3;
-      .disable {
-        display: none;
+      &.theater-btn {
+        grid-column: 8;
+      }
+      transition: all .4s ease-in-out;
+      &:hover {
+        background-color: $purple;
+        color: $white;
+        transition: all .4s ease-in-out;
       }
     }
     .theater-mode-btn-section {
       margin: 0 0 0 auto;
-      grid-column: 3;
+    }
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .stream {
+    .btns-section {
+      grid-template-columns: repeat(5, 1fr);
+      grid-auto-columns: minmax(0, auto);
+      gap: 0 10px;
+    }
+    button {
+      &.follow-btn {
+        grid-column: 1;
+      }
+      &.theater-btn {
+        grid-column: 5;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .stream {
+    .btns-section {
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-columns: minmax(0, auto);
+      gap: 0 10px;
+    }
+    button {
+      &.follow-btn {
+        grid-column: 1;
+      }
+      &.theater-btn {
+        grid-column: 4;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 982px) {
+  .stream {
+    .header-live {
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+      .title {
+        grid-column: 1 / 3;
+      }
+      .game {
+        grid-column: 3;
+      }
+    }
+    
+    .stream-embed {
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: minmax(450px, auto);
+      align-items: center;
+      .live-embed {
+        grid-column: 1 / 3;
+      }
+      .chat-embed {
+        grid-column: 3;
+      }
     }
   }
 }
@@ -103,7 +152,6 @@
 @media screen and (min-width: 1540px) {
   .stream {
     .header-live {
-      grid-template-rows: repeat(5fr, 1fr);
       grid-auto-columns: minmax(300px, auto);
       .title {
         grid-column: 1 / 4;
@@ -113,7 +161,6 @@
       }
     }
     .stream-embed {
-      grid-template-rows: repeat(5fr, 1fr);
       grid-auto-columns: minmax(300px, auto);
       grid-auto-rows: minmax(650px, auto);
       .live-embed {
@@ -126,79 +173,45 @@
   }
 }
 
-
-/*
-.stream {
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  margin: 30px auto 0;
-  .header-live {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .title {
-      flex: 2;
-      padding-bottom: 5px;
-      font-size: 1.2rem;
-      font-weight: 600;
-      span {
-        margin-right: 5px;
-        strong {
-          color: $purple;
-        }
-      }
-    }
-    .game {
-      display: flex;
-      justify-content: space-between;
-      width: 300px;
-      padding: 10px 0;
-      background-color: $purple;
-      text-align: center;
-      color: $white;
-      p {
-        margin-left: 10px;
-        font-weight: 600;
-      }
-      span {
-        margin-right: 10px;
-        display: block;
-        position: relative;
-      }
-    }
-  }
-  .stream-embed {
-    display: flex;
-    .live-embed {
-      flex: 2;
-      height: 500px;
-    }
-  }
-}
-
 @media screen and (max-width: 981px) {
   .stream {
-    width: 100%;
+    width: 95%;
+    margin: 15px auto 0;
     .header-live {
+      display: grid;
       .title {
-        flex: 3;
+        margin-bottom: 5px;
       }
       .game {
         display: none;
       }
     }
+
     .stream-embed {
-      flex-direction: column;
-      .live-embed {
-        height: 240px;
-      }
       .chat-embed {
-        display: block;
-        height: 500px;
+        display: none;
+      }
+      .live-embed {
+        height: 290px;
       }
     }
+
+    .btns-section {
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(1, 1fr);
+      grid-auto-rows: minmax(100%, auto);
+      gap: 10px 0;
+      button {
+        &.follow-btn {
+          grid-row: 1;
+        }
+        &.theater-btn {
+          grid-column: 1;
+          grid-row: 3;
+        }
+      }
+    }
+
   }
 }
-
-*/
