@@ -19,6 +19,15 @@ h1, h2, h3, h4, h5, h6, ul, li, p, font {
   padding: 0;
 }
 
+input, select, option, button {
+  outline: none;
+}
+
 .italic {
   font-style: italic;
+}
+
+// To disable element
+.disable {
+  display: none;
 }
