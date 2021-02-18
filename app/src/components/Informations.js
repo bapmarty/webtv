@@ -1,4 +1,4 @@
-import Head from '../assets/img/bapmarty-head.png';
+import Head from '../assets/img/bapmarty_new_head.png';
 import Devices from '../assets/img/devices.svg';
 
 import "../assets/scss/components/informations.scss";
