@@ -1,6 +1,6 @@
 const { stream, channel } = require("../Controllers/stream.controller");
 
 module.exports = app => {
-  app.get('/stream/:token', stream);
-  app.get('/channel/:token', channel);
+  app.get('/v1/stream/:token', stream);
+  app.get('/v1/channel/:token', channel);
 }
