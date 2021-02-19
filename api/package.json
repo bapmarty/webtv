@@ -17,6 +17,9 @@
     "node-fetch": "^2.6.1",
     "serve-favicon": "2.5.0",
     "cookie-parser": "1.4.5",
-    "mongoose": "5.11.17"
+    "mongoose": "5.11.17",
+    "bcrypt": "5.0.0",
+    "uuid": "8.3.2",
+    "jsonwebtoken": "8.5.1"
   }
 }
