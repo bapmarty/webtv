@@ -41,6 +41,7 @@ app.get('/', (req, res) => {
 require('./Routes/auth.routes')(app);
 require('./Routes/user.routes')(app);
 require('./Routes/stream.routes')(app);
+require('./Routes/prog.routes')(app);
 
 // Mongo connection
 mongoose.connect(`mongodb://${process.env.MONGO_ROOT_USERNAME}:${encodeURIComponent(process.env.MONGO_ROOT_PASSWORD)}@${process.env.MONGO_HOST}:27017/${process.env.MONGO_DATABASE}`, {
