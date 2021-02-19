@@ -21,7 +21,15 @@ exports.newProg = (req, res) => {
 exports.weekProg = (req, res) => {
   const query = Prog.where({ __v: 0 });
   query.findOne()
-  .then(data => res.status(200).send(data))
+  .then(data => res.status(200).send({
+    monday: data.monday,
+    tuesday: data.tuesday,
+    wednesday: data.wednesday,
+    thursday: data.thursday,
+    friday: data.friday,
+    saturday: data.saturday,
+    sunday: data.sunday
+  }))
   .catch(err => res.status(500).send(err));
 }
 
