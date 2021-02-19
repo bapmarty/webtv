@@ -2,8 +2,9 @@
 
 .stream {
   width: 85%;
-  margin: 25px auto 0;
+  margin: 50px auto 0;
   .header-live {
+    height: 50px;
     .title {
       font-size: 1.2rem;
       font-weight: 600;
@@ -16,9 +17,10 @@
     }
     .game {
       display: flex;
+      height: 50px;
       justify-content: space-between;
-      padding: 10px 0;
       background-color: $purple;
+      align-items: center;
       text-align: center;
       color: $white;
       p {
@@ -30,6 +32,9 @@
         display: block;
         position: relative;
       }
+    }
+    .close-theater-btn {
+      display: none;
     }
   }
 
@@ -207,11 +212,71 @@
           grid-row: 1;
         }
         &.theater-btn {
+          display: none;
           grid-column: 1;
           grid-row: 3;
         }
       }
     }
+  }
+}
 
+.stream.theater-on {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  margin: 0;
+  z-index: 100000;
+  .header-live, .stream-embed {
+    grid-template-columns: repeat(4, 1fr);
+    .title, .live-embed {
+      grid-column: 1 / 4;
+      grid-row: 1;
+    }
+    .game, .chat-embed {
+      grid-column: 4;
+    }
+  }
+  .header-live {
+    position: relative;
+    background-color: $white;
+    height: 50px;
+    .close-theater-btn {
+      position: relative;
+      display: block;
+      grid-row: 1;
+      grid-column: 3;
+      .theater-btn {
+        position: absolute;
+        right: 10px;
+        bottom: -17px;
+        font-size: 1rem;
+        background-color: darken($white, 5%);
+        padding: 7px 5px;
+        border: none;
+        border-radius: 3px;
+        color: $black;
+        transition: all .4s ease-in-out;
+        &:hover {
+          background-color: $purple;
+          color: $white;
+          transition: all .4s ease-in-out;
+        }
+      }
+    }
+  }
+  .stream-embed {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    z-index: -1;
+    .title, .game {
+      height: 50px;
+    }
+  }
+
+  .btns-section {
+    display: none;
   }
 }
