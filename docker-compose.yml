@@ -1,6 +1,18 @@
 version: '3.5'
 
 services:
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - ./mongo/data:/data/db
+    networks:
+      - webtv
+
   api:
     build: ./api/
     restart: always
@@ -11,6 +23,8 @@ services:
       CHANNEL_ID: ${CHANNEL_ID}
       REDIRECT_URI: ${REACT_APP_API_HOST}
       REDIRECT_URI_APP: ${APP_HOST}
+      MONGO_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
     volumes:
       - ./api/:/usr/src/
       - ./api/package.json:/usr/src/package.json
