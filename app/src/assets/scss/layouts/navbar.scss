@@ -152,7 +152,7 @@
     border-bottom: 1px solid;
     border-color: lighten($purple, 50%);
     background-color: $white;
-    z-index: 100;
+    z-index: 10000;
     
     .navbar-header {
       z-index: 99;
@@ -292,7 +292,7 @@
   .navbar-container {
     display: flex;
     flex-direction: column;
-    z-index: 100;
+    z-index: 10000;
     .navbar-header {
       display: flex;
       justify-content: space-between;
@@ -301,7 +301,7 @@
       border-bottom: 1px solid;
       border-color: lighten($purple, 50%);
       background-color: $white;
-      z-index: 99;
+      z-index: 10000;
       .navbar-header-title {
         h1 {
           a {

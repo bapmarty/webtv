@@ -32,6 +32,13 @@ const Navbar = () => {
     }
   }
 
+  const resetNavbar = () => {
+    if (icon === faTimes) {
+      setIcon(faBars);
+      setNavbarOpen("navbar-nav");
+    }
+  }
+
   const handleClickConnectTwitch = () => {
     window.open(`https://id.twitch.tv/oauth2/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_API_HOST}/auth/callback&response_type=code&scope=user_read%20user_follows_edit`, '_self');
   }
@@ -78,10 +85,10 @@ const Navbar = () => {
         </div>
         <div className={navbarOpen}>
           <ul className="navbar-nav-list">
-            <li className="navbar-nav-item"><NavLink exact to='/' activeClassName="active">Direct <FontAwesomeIcon className={liveUp} icon={faCircle} /></NavLink></li>
-            <li className="navbar-nav-item"><NavLink exact to='/prog' activeClassName="active">Programmation</NavLink></li>
-            <li className="navbar-nav-item"><NavLink exact to='/info' activeClassName="active">Informations</NavLink></li>
-            <li className="navbar-nav-item"><NavLink exact to='/rediff' activeClassName="active">Rediffusions</NavLink></li>
+            <li className="navbar-nav-item"><NavLink exact to='/' onClick={resetNavbar} activeClassName="active">Direct <FontAwesomeIcon className={liveUp} icon={faCircle} /></NavLink></li>
+            <li className="navbar-nav-item"><NavLink exact to='/prog' onClick={resetNavbar} activeClassName="active">Programmation</NavLink></li>
+            <li className="navbar-nav-item"><NavLink exact to='/info' onClick={resetNavbar} activeClassName="active">Informations</NavLink></li>
+            <li className="navbar-nav-item"><NavLink exact to='/rediff' onClick={resetNavbar} activeClassName="active">Rediffusions</NavLink></li>
           </ul>
           <ul className="auth-mobile-btn">
             {user.name ? (<li><div>{user.display_name}</div><div onClick={handleClickLogoutTwitch}><FontAwesomeIcon icon={faSignOutAlt} /></div></li>) : (<li onClick={handleClickConnectTwitch}>Se connecter <FontAwesomeIcon icon={faTwitch} /></li>)}

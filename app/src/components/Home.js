@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faExpand, faGamepad, faHeart, faMoneyBillAlt } from '@fortawesome/free-solid-svg-icons'
+import { faCompress, faExpand, faGamepad, faHeart, faMoneyBillAlt } from '@fortawesome/free-solid-svg-icons'
 
 import "../assets/scss/components/home.scss";
 
@@ -9,6 +9,7 @@ const Home = () => {
 
   const [user, setUser] = useState({});
   const [channelInfo, setChannelInfo] = useState({});
+  const [openTheater, setOpenTheater] = useState('stream');
   const [host, setHost] = useState(new URL(window.location.href).hostname);
 
   const OPTIONS = { method: 'GET',
@@ -40,23 +41,34 @@ const Home = () => {
     window.open('https://streamlabs.com/bapmarty1', '_blank');
   }
 
+  const openTheaterScreen = () => {
+    if (openTheater === 'stream') {
+      setOpenTheater('stream theater-on');
+    }
+    else {
+      setOpenTheater('stream');
+    }
+  }
+
   useEffect(() => {
     fetchData();
   }, []);
 
   return (
     <>
-      <section className="stream">
+      <section className={openTheater}>
         <section className="header-live">
           <div className="title">
-            <span>[<strong>{channelInfo.broadcaster_language ? channelInfo.broadcaster_language.toUpperCase() : 'FR'}</strong>]</span>
-            {channelInfo.status ? channelInfo.status : 'Rien de spécial'}
+            <p><span>[<strong>{channelInfo.broadcaster_language ? channelInfo.broadcaster_language.toUpperCase() : 'FR'}</strong>]</span>{channelInfo.status ? channelInfo.status : 'Rien de spécial'}</p>
           </div>
           <div className="game">
             <p>{channelInfo.game ? channelInfo.game : ''}</p>
             <span>
               <FontAwesomeIcon icon={faGamepad} />
             </span>
+          </div>
+          <div className="close-theater-btn">
+            <button className="theater-btn" onClick={openTheaterScreen}>Mode théâtre <FontAwesomeIcon icon={faCompress} /></button>
           </div>
         </section>
         <section className="stream-embed">
@@ -84,7 +96,7 @@ const Home = () => {
           <button className="follow-btn" onClick={twitchFollowBtn}><FontAwesomeIcon icon={faHeart} /> Suivre</button>
           <button className="disable subscribe-btn">S'abonner</button>
           <button className="donation-btn" onClick={streamLabsDonation}><FontAwesomeIcon icon={faMoneyBillAlt} /> Faire un don</button>
-          <button className="theater-btn">Mode théâtre <FontAwesomeIcon icon={faExpand} /></button>
+          <button className="theater-btn" onClick={openTheaterScreen}>Mode théâtre <FontAwesomeIcon icon={faExpand} /></button>
         </section>
       </section>
     </>
