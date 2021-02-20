@@ -6,7 +6,6 @@ const Admin = require('../models/admin');
 
 exports.register = (req, res) => {
   console.log('[REGISTER]');
-  console.log(req.body.password + ' ' + req.body.pseudo);
   bcrypt.hash(req.body.password, 10, (err, hash) => {
     const admin = new Admin({
       _uid: uuidv4(),
@@ -24,9 +23,7 @@ exports.login = (req, res) => {
   const query = Admin.where({ pseudo: req.body.pseudo });
   query.findOne()
   .then(data => {
-    console.log(data);
     bcrypt.compare(req.body.password, data.password, (err, result) => {
-      console.log(result);
       if (!result) {
           res.status(401).send({
             auth: false,
@@ -34,13 +31,13 @@ exports.login = (req, res) => {
           });
       } else {
         const token = jwt.sign(
-          { uid: data.uid },
+          { uid: data._uid },
           process.env.SECRET_TOKEN_JWT,
           { expiresIn: "48h" }
         );
 
         res.status(200).send({
-          _uid: data.uid,
+          _uid: data._uid,
           token: token
         });
       }

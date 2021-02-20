@@ -4,7 +4,7 @@ const { callback } = require("../Controllers/callback.controller");
 const auth = require("../middlewares/auth.middleware");
 
 module.exports = app => {
-  app.get('/auth/callback', callback);
+  app.get('/v1/auth/callback', callback);
 
   // Panel routes
   app.post('/v1/auth/admin/login', login);
