@@ -1,6 +1,20 @@
 version: '3.5'
 
 services:
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE}
+    volumes:
+      - ~/db/mongo/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ~/db/mongo/data:/data/db
+    networks:
+      - webtv_ci
+
   api:
     build: ./api/
     environment:
@@ -10,6 +24,11 @@ services:
       CHANNEL_ID: ${CHANNEL_ID}
       REDIRECT_URI: ${REACT_APP_API_HOST}
       REDIRECT_URI_APP: ${APP_HOST}
+      MONGO_HOST: ${MONGO_HOST}
+      MONGO_DATABASE: ${MONGO_DATABASE}
+      MONGO_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      SECRET_TOKEN_JWT: ${SECRET_TOKEN_JWT}
     volumes:
       - ./api/:/usr/src/
       - ./api/package.json:/usr/src/package.json

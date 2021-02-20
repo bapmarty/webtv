@@ -1,5 +1,5 @@
 const { profile } = require("../Controllers/profile.controller");
 
 module.exports = app => {
-  app.get('/user/profile/:token', profile);
+  app.get('/v1/user/profile/:token', profile);
 }
