@@ -38,7 +38,6 @@ services:
       traefik.http.routers.api-bapmarty-tv-secure.middlewares: "api-stripprefix"
       traefik.http.middlewares.api-stripprefix.stripprefix.prefixes: '/api'
     networks:
-      - traefik_network
       - webtv
 
   app:
@@ -70,7 +69,6 @@ services:
       traefik.http.middlewares.redirect-https.redirectscheme.scheme: "https"
       traefik.http.middlewares.redirect-https.redirectscheme.permanent: "true"
     networks:
-      - traefik_network
       - webtv
 
 networks:
