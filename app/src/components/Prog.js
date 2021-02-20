@@ -5,6 +5,8 @@ import "../assets/scss/components/prog.scss";
 const Prog = () => {
 
   const [prog, setProg] = useState({});
+  const [date, setDate] = useState(new Date());
+  const day = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
   const OPTIONS = { method: 'GET',
                     headers: {
@@ -31,10 +33,10 @@ const Prog = () => {
         </section>
         <section className="days">
           <section className="day monday">
-            <div className="day-name">Lundi</div>
+            <div className={"day-name" + (day[date.getDay()] === "monday" ? " actual" : "")}>Lundi</div>
           {prog.week ? prog.week.monday.map((session, i) => {
             return (
-              <div className={`stream-session ${session.hour_start} ${session.hour_end}`} key={i}>
+              <div className="stream-session" key={i}>
                   <p className="game">{session.game}</p>
                   <p className="session-time">{session.hour_start === "24h" ? "00h" : session.hour_start} - {session.hour_end === "24h" ? "00h" : session.hour_end}</p>
                 </div>
@@ -42,10 +44,10 @@ const Prog = () => {
             }) : ""}
           </section>
           <section className="day tuesday">
-            <div className="day-name">Mardi</div>
+            <div className={"day-name" + (day[date.getDay()] === "tuesday" ? " actual" : "")}>Mardi</div>
             {prog.week ? prog.week.tuesday.map((session, i) => {
               return (
-                <div className={`stream-session ${session.hour_start} ${session.hour_end}`} key={i}>
+                <div className="stream-session" key={i}>
                   <p className="game">{session.game}</p>
                   <p className="session-time">{session.hour_start === "24h" ? "00h" : session.hour_start} - {session.hour_end === "24h" ? "00h" : session.hour_end}</p>
                 </div>
@@ -53,10 +55,10 @@ const Prog = () => {
             }) : ""}
           </section>
           <section className="day wednesday">
-            <div className="day-name">Mercredi</div>
+            <div className={"day-name" + (day[date.getDay()] === "wednesday" ? " actual" : "")}>Mercredi</div>
             {prog.week ? prog.week.wednesday.map((session, i) => {
               return (
-                <div className={`stream-session ${session.hour_start} ${session.hour_end}`} key={i}>
+                <div className="stream-session" key={i}>
                   <p className="game">{session.game}</p>
                   <p className="session-time">{session.hour_start === "24h" ? "00h" : session.hour_start} - {session.hour_end === "24h" ? "00h" : session.hour_end}</p>
                 </div>
@@ -64,10 +66,10 @@ const Prog = () => {
             }) : ""}
           </section>
           <section className="day thursday">
-            <div className="day-name">Jeudi</div>
+            <div className={"day-name" + (day[date.getDay()] === "thursday" ? " actual" : "")}>Jeudi</div>
             {prog.week ? prog.week.thursday.map((session, i) => {
               return (
-                <div className={`stream-session ${session.hour_start} ${session.hour_end}`} key={i}>
+                <div className="stream-session" key={i}>
                     <p className="game">{session.game}</p>
                     <p className="session-time">{session.hour_start === "24h" ? "00h" : session.hour_start} - {session.hour_end === "24h" ? "00h" : session.hour_end}</p>
                   </div>
@@ -75,10 +77,10 @@ const Prog = () => {
               }) : ""}
           </section>
           <section className="day friday">
-            <div className="day-name">Vendredi</div>
+            <div className={"day-name" + (day[date.getDay()] === "friday" ? " actual" : "")}>Vendredi</div>
             {prog.week ? prog.week.friday.map((session, i) => {
               return (
-                <div className={`stream-session ${session.hour_start} ${session.hour_end}`} key={i}>
+                <div className="stream-session" key={i}>
                     <p className="game">{session.game}</p>
                     <p className="session-time">{session.hour_start === "24h" ? "00h" : session.hour_start} - {session.hour_end === "24h" ? "00h" : session.hour_end}</p>
                   </div>
@@ -86,10 +88,10 @@ const Prog = () => {
               }) : ""}
           </section>
           <section className="day saturday">
-              <div className="day-name">Samedi</div>
+              <div className={"day-name" + (day[date.getDay()] === "saturday" ? " actual" : "")}>Samedi</div>
             {prog.week ? prog.week.saturday.map((session, i) => {
               return (
-                <div className={`stream-session ${session.hour_start} ${session.hour_end}`} key={i}>
+                <div className="stream-session" key={i}>
                     <p className="game">{session.game}</p>
                     <p className="session-time">{session.hour_start === "24h" ? "00h" : session.hour_start} - {session.hour_end === "24h" ? "00h" : session.hour_end}</p>
                   </div>
@@ -97,10 +99,10 @@ const Prog = () => {
               }) : ""}
           </section>
           <section className="day sunday">
-              <div className="day-name">Dimanche</div>
+              <div className={"day-name" + (day[date.getDay()] === "sunday" ? " actual" : "")}>Dimanche</div>
             {prog.week ? prog.week.sunday.map((session, i) => {
                 return (
-                  <div className={`stream-session ${session.hour_start} ${session.hour_end}`} key={i}>
+                  <div className="stream-session" key={i}>
                     <p className="game">{session.game}</p>
                     <p className="session-time">{session.hour_start === "24h" ? "00h" : session.hour_start} - {session.hour_end === "24h" ? "00h" : session.hour_end}</p>
                   </div>

@@ -2,10 +2,11 @@
 
 .prog-content {
   position: relative;
+  margin-top: 50px;
 }
 .prog {
   display: grid;
-  grid-template-columns: repeat(14, 50px);
+  grid-template-columns: repeat(14, 60px);
   grid-template-rows: repeat(15, 29px);
   grid-auto-rows: 30px;
   gap: 0 15px;
@@ -27,7 +28,7 @@
     border-top: 1px solid;
     border-color: lighten($purple, 50%);
     display: grid;
-    grid-template-columns: repeat(14, 50px);
+    grid-template-columns: repeat(14, 60px);
     grid-template-rows: repeat(13, 29px);
     gap: 0 15px;
     grid-row: 3 / 16;
@@ -35,16 +36,18 @@
     .monday, .tuesday, .wednesday, .thursday, .friday, .saturday, .sunday {
       .day-name {
         text-align: center;
-        grid-row: 4;
         padding: 7px 0;
         font-weight: 600;
+        &.actual {
+          color: $purple;
+        }
       }
       .stream-session {
         position: relative;
         margin: 10px 0;
-        height: 100px;
+        height: 170px;
         border-radius: 3px;
-        background-color: $white;
+        background-color: darken($white, 5%);
         transition: all .4s ease-in-out;
         &:hover {
           background-color: $purple;
