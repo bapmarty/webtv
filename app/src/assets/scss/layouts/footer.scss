@@ -1,0 +1,119 @@
+@import "../variables";
+  
+@media screen and (min-width: 981px) {
+  .long-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px #00000022 solid;
+    margin-top: 25px;
+    p {
+      font-size: .6rem;
+      padding: 15px 30px;
+      text-align: right;
+      font-weight: 400;
+      opacity: .6;
+      span {
+        font-size: 1rem;
+        vertical-align: -1px;
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+        transition: color .2s ease-in-out;
+        &:hover {
+          color: $purple;
+          transition: color .2s ease-in-out;
+        }
+      }
+    }
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    display: block;
+    div.text {
+      text-align: center;
+      p {
+        display: inline-block;
+        font-weight: 400;
+        color: #FFFA;
+        span.point {
+          vertical-align: -5px;
+          font-size: 2rem;
+          margin: 0 3px;
+        }
+        a {
+          color: #FFFA;
+          text-decoration: none;
+          transition: color .2s ease-in-out;
+          &:hover {
+            color: $purple;
+            transition: color .2s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 981px) {
+  .long-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px #00000022 solid;
+    margin-top: 25px;
+    p {
+      font-size: .6rem;
+      padding: 15px 30px;
+      text-align: right;
+      font-weight: 600;
+      opacity: .6;
+      span {
+        font-size: 1rem;
+        vertical-align: -1px;
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+        transition: color .2s ease-in-out;
+        &:hover {
+          color: $purple;
+          transition: color .2s ease-in-out;
+        }
+      }
+    }
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    display: block;
+    div.text {
+      text-align: center;
+      p {
+        display: inline-block;
+        font-weight: 400;
+        color: #FFFA;
+        span.point {
+          vertical-align: -5px;
+          font-size: 2rem;
+          margin: 0 3px;
+        }
+        a {
+          color: #FFFA;
+          text-decoration: none;
+          transition: color .2s ease-in-out;
+          &:hover {
+            color: $purple;
+            transition: color .2s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}
