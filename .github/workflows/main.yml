@@ -12,6 +12,9 @@ env:
   WEBTV_USERNAME: ${{secrets.WEBTV_USERNAME}}
   WEBTV_PASSWORD: ${{secrets.WEBTV_PASSWORD}}
   MONGO_PORT: ${{secrets.MONGO_PORT}}
+  MONGO_HOST: ${{secrets.MONGO_HOST}}
+  MONGO_INITDB_ROOT_USERNAME: ${{secrets.MONGO_INITDB_ROOT_USERNAME}}
+  MONGO_INITDB_ROOT_PASSWORD: ${{secrets.MONGO_INITDB_ROOT_PASSWORD}}
 
 jobs:
   test:
@@ -25,7 +28,7 @@ jobs:
       - name: test
         run: |
           sleep 5
-          docker-compose logs api app
+          docker-compose logs api app mongo
           sh -c "[ `docker inspect $(docker-compose ps -q app) --format='{{.State.ExitCode}}'` -eq 0 ]"
       - name: stop
         run: docker-compose down
