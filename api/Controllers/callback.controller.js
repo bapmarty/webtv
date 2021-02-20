@@ -11,7 +11,6 @@ exports.callback = (req, res) => {
     { method: 'POST' })
   .then(resp => resp.json())
   .then(data => {
-    console.log("[DATA]: \n" + data);
     res.cookie('twitch_access_token', data.access_token, { expires: new Date(new Date().getTime()+21600000) });
     res.cookie('twitch_refresh_token', data.refresh_token, { expires: new Date(new Date().getTime()+21600000) });
     res.redirect(REDIRECT_URI_APP);

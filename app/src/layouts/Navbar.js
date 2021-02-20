@@ -88,7 +88,6 @@ const Navbar = () => {
             <li className="navbar-nav-item"><NavLink exact to='/' onClick={resetNavbar} activeClassName="active">Direct <FontAwesomeIcon className={liveUp} icon={faCircle} /></NavLink></li>
             <li className="navbar-nav-item"><NavLink exact to='/prog' onClick={resetNavbar} activeClassName="active">Programmation</NavLink></li>
             <li className="navbar-nav-item"><NavLink exact to='/info' onClick={resetNavbar} activeClassName="active">Informations</NavLink></li>
-            <li className="navbar-nav-item"><NavLink exact to='/rediff' onClick={resetNavbar} activeClassName="active">Rediffusions</NavLink></li>
           </ul>
           <ul className="auth-mobile-btn">
             {user.name ? (<li><div>{user.display_name}</div><div onClick={handleClickLogoutTwitch}><FontAwesomeIcon icon={faSignOutAlt} /></div></li>) : (<li onClick={handleClickConnectTwitch}>Se connecter <FontAwesomeIcon icon={faTwitch} /></li>)}
@@ -105,6 +104,7 @@ const Navbar = () => {
               <li className="auth-desktop-account">
                 <div className="logo">
                   <img src={user.logo} alt={user.name} />
+                  <span className="status-code"><i className="green"></i></span>
                 </div>
                 <div className="name">
                   <span>{user.display_name}</span>

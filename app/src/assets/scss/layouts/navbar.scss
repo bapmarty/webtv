@@ -119,11 +119,32 @@
         color: $white;
         font-weight: 600;
         .logo {
+          position: relative;
           margin-left: 40px;
           img {
             margin-top: 3px;
             width: 29px;
             border-radius: 50%;
+          }
+          .status-code {
+            position: absolute;
+            top: 24px;
+            left: -2px;
+            display: flex;
+            background: $purple;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            justify-content: center;
+            align-items: center;
+            .green {
+              display: block;
+              width: 8px;
+              height: 8px;
+              background: greenyellow;
+              border-radius: 50%;
+              font-size: 8px;
+            }
           }
         }
         .name {
@@ -263,12 +284,34 @@
         color: $white;
         font-weight: 600;
         .logo {
+          position: relative;
           margin-left: 40px;
           img {
             margin-top: 3px;
             width: 29px;
             border-radius: 50%;
           }
+          .status-code {
+            position: absolute;
+            top: 24px;
+            left: -2px;
+            display: flex;
+            background: $purple;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            justify-content: center;
+            align-items: center;
+            .green {
+              display: block;
+              width: 8px;
+              height: 8px;
+              background: greenyellow;
+              border-radius: 50%;
+              font-size: 8px;
+            }
+          }
+
         }
         .name {
           margin: 0 40px 0 10px;
