@@ -23,13 +23,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: build
-        run: docker-compose build
+        run: docker-compose build api app
       - name: run
-        run: docker-compose up -d
+        run: docker-compose up -d api app
       - name: test
         run: |
           sleep 5
-          docker-compose logs api app mongo
+          docker-compose logs api app
           sh -c "[ `docker inspect $(docker-compose ps -q app) --format='{{.State.ExitCode}}'` -eq 0 ]"
       - name: stop
         run: docker-compose down
